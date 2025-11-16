@@ -11,7 +11,7 @@ const AuthImagePattern = ({ title, subtitle }) => {
               key={i} 
               className={`aspect-square rounded-2xl bg-primary/10 hover:bg-gray-900 ${
                 i % 2 === 0 ? "animate-pulse opacity-100" : ""}
-                ${i<3 ? "bg-red-400" : i<6 ? "bg-purple-400" : "bg-green-400"}`}
+                ${i<3 ? "bg-orange-400" : i<6 ? "bg-purple-400" : "bg-red-400"}`}
               onClick={()=>{toast.success("Nice Click!😉")}}
             />
           ))}
