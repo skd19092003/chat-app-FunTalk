@@ -24,7 +24,7 @@ const LoginPage = () => {
         <div className="w-full max-w-md space-y-8">
 
           {/* Logo */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 mt-14">
             <div className="flex flex-col items-center gap-2 group">
               <div
                 className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20
