@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ensure the app root can fill the viewport so page background covers full height */
+html, body, #root {
+	height: 100%;
+}
