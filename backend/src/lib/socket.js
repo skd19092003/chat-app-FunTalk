@@ -4,7 +4,7 @@ import express from "express";
 
 const app = express();
 const server = http.createServer(app);
-
+ 
 const io = new Server(server, {
   cors: {
     origin: ["http://localhost:5173"],
@@ -35,3 +35,12 @@ io.on("connection", (socket) => {
 });
 
 export { io, app, server };
+
+
+// Short summary
+// This file creates an Express app + raw HTTP server, attaches a Socket.IO server to it,
+// tracks which user is connected to which socket, and broadcasts the online-user list.
+// It’s split out so other modules can use the same server/socket instance.
+
+// Imports Node's http and Express. Socket.IO needs the raw http.Server to attach to;
+//  Express provides REST endpoints if needed.

@@ -8,7 +8,7 @@ const MessageInput = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef(null);
   const { sendMessage } = useChatStore();
-
+ 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (!file.type.startsWith("image/")) {
@@ -16,6 +16,8 @@ const MessageInput = () => {
       return;
     }
     const reader = new FileReader();
+    
+    //onloadend is an event handler for FileReader that triggers when the file reading is complete
     reader.onloadend = () => {
       setImagePreview(reader.result);
     };
@@ -50,6 +52,7 @@ const MessageInput = () => {
 
   return (
     <div className="p-4 w-full">
+     
       {imagePreview && (
         <div className="mb-3 flex items-center gap-2">
           <div className="relative">
@@ -58,8 +61,10 @@ const MessageInput = () => {
               alt="Preview"
               className="w-20 h-20 object-cover rounded-lg border border-zinc-700"
             />
+            {/* //small cross button on top of imagepreview */}
             <button
               onClick={removeImage}
+              // -top-1.5 -right-1.5 positions the button at the top right corner of the image
               className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-base-300
               flex items-center justify-center"
               type="button"
@@ -79,6 +84,9 @@ const MessageInput = () => {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+
+          {/* //created a input hidden , and button will open it and button appearance is lucide react file icon */}
+          {/* button has reference pointer of input wonclicking button reference will click and input will work */}
           <input
             type="file"
             accept="image/*"
@@ -86,7 +94,6 @@ const MessageInput = () => {
             ref={fileInputRef}
             onChange={handleImageChange}
           />
-
           <button
             type="button"
             className={` btn btn-xs btn-circle  sm:flex sm:btn-md  hover:bg-blue-200
@@ -104,6 +111,7 @@ const MessageInput = () => {
           <Send size={18} />
         </button>
       </form>
+
     </div>
   );
 };

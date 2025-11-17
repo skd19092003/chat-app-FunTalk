@@ -6,7 +6,7 @@ import MessageInput from "./MessageInput";
 import MessageSkeleton from "./skeletons/MessageSkeleton";
 import { useAuthStore } from "../store/useAuthStore";
 import { formatMessageTime } from "../lib/utils";
-
+ 
 const ChatContainer = () => {
   const { messages,getMessages, isMessagesLoading,selectedUser,subscribeToMessages, unsubscribeFromMessages, } = useChatStore();
   const { authUser } = useAuthStore();
@@ -47,6 +47,8 @@ const ChatContainer = () => {
             className={`chat ${message.senderId === authUser._id ? "chat-end" : "chat-start"}`}
             ref={messageEndRef}
           >
+           
+           {/* inside the div of justify chat-start, chat-end */}
             <div className=" chat-image avatar">
               <div className="size-10 rounded-full border">
                 <img
@@ -59,11 +61,17 @@ const ChatContainer = () => {
                 />
               </div>
             </div>
+
+
             <div className="chat-header mb-1">
-              <time className="text-xs opacity-50 ml-1">
+              <time className="text-xs opacity-50 ml-1 flex">
+               <div className="hidden sm:flex">{message.senderId === selectedUser._id ? selectedUser?.fullName : authUser?.fullName} -
+               </div>
                 {formatMessageTime(message.createdAt)}
               </time>
             </div>
+
+
             <div className="chat-bubble flex flex-col">
               {message.image && (
                 <img
@@ -74,6 +82,8 @@ const ChatContainer = () => {
               )}
               {message.text && <p>{message.text}</p>}
             </div>
+
+
           </div>
         ))}
       </div>

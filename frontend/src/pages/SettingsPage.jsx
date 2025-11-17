@@ -31,7 +31,7 @@ const SettingsPage = () => {
             >
               {/* here the 4 small sqaure get differentn colors due to data theme={t} according to t , the primary ,secondary,accent,neutral will get bg-color */}
               <div className="relative h-8 w-full rounded-md overflow-hidden" data-theme={t}>
-                <div className="absolute inset-0 grid grid-cols-4 gap-px p-1">
+                <div className="absolute inset-0 grid grid-cols-4 gap-px p-1 ">
                   <div className="rounded bg-primary"></div>
                   <div className="rounded bg-secondary"></div>
                   <div className="rounded bg-accent"></div>
@@ -53,7 +53,7 @@ const SettingsPage = () => {
           <div className="p-4 bg-base-200 ">
 
             {/* this below represent the smaller box overall */}
-            <div className="max-w-lg mx-auto bg-black">
+            <div className="max-w-lg mx-auto ">
               {/* Mock Chat UI this  */}
               <div className="bg-base-100 rounded-xl shadow-sm overflow-hidden">
                 {/* Chat Header  j john doe wala div container below one*/}

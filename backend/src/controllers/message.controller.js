@@ -3,7 +3,7 @@ import Message from "../models/message.model.js";
 
 import cloudinary from "../lib/cloudinary.js";
 import { getReceiverSocketId, io } from "../lib/socket.js";
-
+ 
 //this will send us users  id except our own selves so we can show it on frotend
 export const getUsersForSidebar = async (req, res) => {
   try {

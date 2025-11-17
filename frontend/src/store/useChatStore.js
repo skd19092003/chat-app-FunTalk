@@ -10,8 +10,9 @@ export const useChatStore = create((set, get) => ({
   isUsersLoading: false,
   isMessagesLoading: false,
 
-  
-
+     
+  setSelectedUser: (User) => set({ selectedUser:User }),
+ 
 
   // for getuserforsidebar controller
   getUsers: async () => {
@@ -30,7 +31,7 @@ export const useChatStore = create((set, get) => ({
     set({ isMessagesLoading: true });
     try {
       const res = await axiosInstance.get(`/messages/${userId}`);
-      set({ messages: res.data });
+      set({ messages: res.data }); //the existing data msgs will be stored here
     } catch (error) {
       toast.error(error.response.data.message);
     } finally {
@@ -41,7 +42,7 @@ export const useChatStore = create((set, get) => ({
     const { selectedUser, messages } = get();
     try {
       const res = await axiosInstance.post(`/messages/send/${selectedUser._id}`, messageData);
-      set({ messages: [...messages, res.data] });
+      set({ messages: [...messages, res.data] }); //all message spread out + new msg to add it in messages array
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -68,8 +69,7 @@ export const useChatStore = create((set, get) => ({
     socket.off("newMessage");
   },
 
-  //optimzied this one later
-  setSelectedUser: (User) => set({ selectedUser:User }),
+
 
   
 }));

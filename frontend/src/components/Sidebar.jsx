@@ -63,10 +63,10 @@ const Sidebar = () => {
                   className="absolute bottom-0 right-0 size-3 bg-green-500 
                   rounded-full ring-2 ring-zinc-900"
                 />
-              )}
+              )} 
             </div>
 
-            {/* User info - only visible on larger screens */}
+            {/* User info - only visible on sm md lg larger screens */}
             <div className="hidden sm:flex sm:flex-col lg:block justify-start min-w-0">
               <div className="font-medium truncate">{user.fullName}</div>
               <div className="text-sm text-zinc-400 flex items-start">

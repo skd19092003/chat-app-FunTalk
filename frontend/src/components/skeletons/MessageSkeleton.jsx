@@ -10,7 +10,7 @@ const MessageSkeleton = () => {
             <div className="size-10 rounded-full">
               <div className="skeleton w-full h-full rounded-full" />
             </div>
-          </div>
+          </div> 
 
           <div className="chat-header mb-1">
             <div className="skeleton h-4 w-16" />

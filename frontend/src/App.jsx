@@ -9,6 +9,7 @@ import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
 import { Suspense, lazy } from "react";
 
+
 const HomePage = lazy(() => import("./pages/HomePage"));
 const SignUpPage = lazy(() => import("./pages/SignUpPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
@@ -40,7 +41,7 @@ const App = () => {
     <div data-theme={theme}>
       <Navbar />
       <Suspense fallback={
-        <div className="flex items-center justify-center h-screen">
+        <div className="flex items-center justify-center ">
           <Loader className="size-10 animate-spin" />
         </div>
       }>
@@ -52,7 +53,7 @@ const App = () => {
           <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
         </Routes>
       </Suspense>
-
+  
       <Toaster />
     </div>
   );
