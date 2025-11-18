@@ -28,6 +28,12 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
+// lightweight health check — must be very cheap
+app.get("/_health", (req, res) => {
+  // optional: include a simple check result
+  res.status(200).json({ ok: true, time: Date.now() });
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
